@@ -15,8 +15,8 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  def edit; end
-  def edit
+
+    def edit
     end
   def create
     @team = Team.new(team_params)
@@ -52,7 +52,7 @@ class TeamsController < ApplicationController
       OwnerMailer.owner_mail(new_owner.user.email, @team.name).deliver
       redirect_to team_url(params[:team_id])
     end
-    
+
   def dashboard
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
